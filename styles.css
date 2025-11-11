@@ -1,0 +1,734 @@
+:root {
+    /* Default (mobile) scale factor: reduced to 2 for better mobile safety */
+    --scale-factor: 5;
+}
+
+/* === CRITICAL FIX: Universal Box Sizing === */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Orbitron', 'Poppins', sans-serif;
+    line-height: 1.5;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+/* === NAVIGATION STYLES (ADJUSTED FOR COMPACTNESS) === */
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0;
+    background-color: #f4f4f4;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    border-bottom: #6d00a7 solid 2px;
+    height: 80px;
+    min-height: 60px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-logo {
+    width: 45px;
+    /* Slightly smaller logo */
+    margin: 0.5rem 0;
+    /* Reduced margin */
+}
+
+.nav-logo:hover {
+    opacity: 0.8;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    /* Reduced gap for large screens */
+    margin: 0.5rem 0;
+    /* Reduced margin */
+    font-weight: 500;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: black;
+    padding: 0.3rem 0.5rem;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.nav-link:active {
+    color: #6d00a7;
+    border-bottom: 2px solid #6d00a7;
+}
+
+/* Hover removed from nav-link */
+.nav-link:hover, .nav-link:focus {
+    box-shadow: inset 0 1px 1px 2px rgba(109, 0, 167, 0.4);
+    border-radius: 5px;
+}
+
+/* === HERO SECTION STYLES === */
+.hero {
+    /* Main top padding remains for fixed navbar clearance */
+    padding: 6rem 4rem 3rem;
+    background: url(./images/Hero\ image2e.webp) no-repeat center center/cover;
+    display: flex;
+    color: white;
+    text-align: center;
+    border-bottom: 2px solid #6d00a7;
+    -webkit-mask-image: linear-gradient(black 80%, transparent);
+    mask-image: linear-gradient(black 80%, transparent);
+}
+
+.hero-sub {
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    text-align: start;
+}
+
+.hero-sub h1 {
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-sub p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.hero-btns {
+    display: flex;
+    justify-content: start;
+    margin-top: 1.5rem;
+    gap: 1rem;
+    color: white;
+}
+
+.hero-sub img {
+    width: 250px;
+    animation: growShrink 2s infinite;
+}
+
+@keyframes growShrink {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+button {
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 5rem;
+    border: 2px solid #6d00a7;
+    cursor: pointer;
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    background-color: white;
+    color: #6d00a7;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translate(0px, -3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    background-color: #6d00a7;
+    border: 2px solid white;
+    color: #ffffff;
+}
+
+/* === SKILLS SECTION STYLES === */
+.skills-section {
+    text-align: center;
+    padding: 2rem 2rem;
+}
+
+.skills-container {
+    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    padding: 2rem 4rem;
+}
+
+.skill {
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.3s ease;
+}
+
+/* Hover removed from skill */
+.skill:hover {
+    transform: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.skill i {
+    color: #6d00a7;
+    margin-bottom: 0.5rem;
+}
+
+/* === PORTFOLIO SECTION STYLES (UPDATED) === */
+.portfolio-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 4rem;
+    overflow-x: hidden;
+    background-color: #f9f9f9;
+}
+
+.portfolio-container {
+    max-width: 1200px;
+    margin: 1.5rem auto 0 auto;
+    text-align: left;
+    /* CHANGED: Switched from Grid to Flex for desktop */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* END CHANGED */
+    gap: 2rem;
+    padding: 2rem;
+    width: 100%;
+}
+
+.portfolio-card {
+    /* ADDED: Flex properties to allow items to wrap and grow */
+    flex-basis: 300px;
+    flex-grow: 1;
+    /* END ADDED */
+
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hover removed from portfolio-card */
+.portfolio-card:hover {
+    transform: none;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-card h3 {
+    color: #6d00a7;
+    margin-top: 0;
+}
+
+/* Grid container for images within standard portfolio cards */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+/* --- IMAGE HOVER (STANDARD PORTFOLIO IMAGES) --- */
+.portfolio-img {
+    width: 100%;
+    height: auto;
+    /* REMOVED: aspect-ratio: 1 / 1; (Removes square container look) */
+    object-fit: cover;
+    /* CHANGED: Use cover to fill space */
+    background-color: transparent;
+    /* CHANGED: Remove containment background */
+    display: block;
+    margin-bottom: 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform-origin: center center;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, object-fit 0.4s, aspect-ratio 0.4s;
+    position: relative;
+    z-index: 10;
+}
+
+.portfolio-img:hover {
+    transform: scale(3);
+    z-index: 100;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    object-fit: contain;
+    aspect-ratio: unset; 
+    cursor: pointer;
+}
+
+/* --- GALLERY CARD GRID AND IMAGES --- */
+.portfolio-card .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Apply unified image pop-out effect to all gallery-grid images */
+.portfolio-card .gallery-grid img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    /* KEPT: Keeps the uniform 5x5 layout geometry */
+    object-fit: cover;
+    /* CHANGED: Use cover to fill the square */
+    display: block;
+    border-radius: 4px;
+    position: relative;
+    transform-origin: center center;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, object-fit 0.4s, aspect-ratio 0.4s;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-card .gallery-grid img:hover {
+    transform: scale(2);
+    z-index: 10000;
+    filter: brightness(1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    object-fit: contain;
+    aspect-ratio: unset;
+    cursor: pointer;
+}
+
+/* NEW MEDIA QUERY: Enforce 4x4 grid on large screens for the gallery */
+@media screen and (min-width: 1200px) {
+    .portfolio-card .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+         .portfolio-card .portfolio-grid {
+             grid-template-columns: repeat(2, 1fr);
+             grid-template-rows: auto fit-content(200px);
+             justify-content: center;
+         }
+}
+
+
+/* === TESTIMONIALS SECTION STYLES (UPDATED FOR 2x2 GRID) === */
+.testimonials-section {
+    text-align: center;
+    padding: 2rem 4rem;
+}
+
+.testimonials-container {
+    /* CHANGED: Switched to Grid for precise 2x2 control on large screens */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Fluid column layout for medium screens */
+    gap: 1.5rem;
+    margin: 1rem auto;
+    /* Added auto margins for centering */
+    padding: 2rem;
+    text-align: center;
+    max-width: 1200px;
+    /* Constrain max width for better readability */
+}
+
+.testimonial {
+    background-color: #f4f4f4;
+    padding: 1.5rem 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    /* Ensuring content is centered and structured neatly within the card */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Hover removed from testimonial */
+.testimonial:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 5px auto 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* NEW: Enforce 2x2 layout on large screens */
+@media screen and (min-width: 993px) {
+    .testimonials-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* Forces exactly two columns */
+        grid-template-rows: repeat(2, 1fr);
+        /* Forces two rows for the 2x2 look */
+    }
+}
+
+/* === ABOUT SECTION STYLES (UPDATED FOR 2x2 GRID) === */
+.about-section {
+    padding: 2rem 4rem;
+    text-align: center;
+}
+
+.abt-img2 {
+    width: 200px;
+    border-radius: 50%;
+    border: 5px solid #6d00a7;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.about-container {
+    max-width: 1200px;
+    /* NEW: Constrain max width */
+    /* UPDATED: Change to Flex/Grid setup for responsive 2x2 on large screens */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    text-align: center;
+    padding: 2rem;
+    margin: 0 auto 50px auto;
+    /* NEW: Center the container */
+}
+
+.about-item {
+    background-color: #f4f4f4;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: none;
+    /* Ensures items are nicely spaced and stretch within the grid cell */
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* === FOOTER AND CONTACT STYLES (SOCIAL LINKS CENTERING) === */
+#topBtn {
+    padding: 0px;
+    font-size: 2.5rem;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99999;
+    background-color: transparent;
+    color: #6d00a7;
+    border: none;
+    transition: all 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    /* ADDED opacity and visibility transitions */
+    cursor: pointer;
+    opacity: 0;
+    /* INITIALLY HIDDEN */
+    visibility: hidden;
+    /* INITIALLY HIDDEN */
+}
+
+#topBtn:hover {
+    transform: scale(1.1);
+    box-shadow: none;
+    color: #5a008c;
+}
+
+footer {
+    text-align: center;
+    padding: .5rem 0;
+    color: white;
+    font-weight: 600;
+    background: linear-gradient(180deg, #6d00a7, #783aff);
+    border-top: #6d00a7 solid 5px;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem 2rem;
+    gap: 1.5rem;
+    text-align: center;
+    /* NEW: Center text content in the footer */
+}
+
+.footer-p {
+    text-align: center;
+    padding: 1rem 0 0;
+    margin: 1rem 0 0;
+    color: white;
+}
+
+.c-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.c-buttons button {
+    background-color: #6d00a7;
+    color: white;
+    border: white solid 2px;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    margin: .5rem 0;
+}
+
+.c-buttons .whatsApp {
+   background-color: white;
+    color: green;
+    border: green solid 2px;
+}
+
+.c-buttons .whatsApp:hover {
+    background-color: green;
+    color: #f0f0f0;
+}
+
+.c-buttons button:hover {
+    background-color: #f0f0f0;
+    color: #6d00a7;
+}
+
+.footer-item {
+    padding: .5rem 4rem;
+}
+
+.footer-item form {
+    background-color: #f4f4f4;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px;
+    text-align: left;
+    color: black;
+    margin-bottom: 1rem;
+    /* Added margin for spacing above social links */
+}
+
+form h2{
+    text-align: center;
+}
+
+.contact-inputs {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-btn button {
+    background-color: #6d00a7;
+    color: white;
+    border: white solid 2px;
+    width: 100%;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.form-btn button:hover {
+    background-color: #e0e0e0;
+    color: #6d00a7;
+    border: #6d00a7 solid 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.social-links {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    /* NEW: Center the icons horizontally */
+}
+
+.social-links i {
+    font-size: 1.5rem;
+    color: white;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links i:hover {
+    transform: translate(0px, -5px);
+    color: #d1b3ff;
+}
+
+/* === MEDIA QUERIES === */
+@media screen and (max-width: 992px) {
+    .hero {
+        /* Adjusted from 5rem to 7rem to create more visible space below the fixed navbar on smaller screens */
+        padding: 7rem 2rem 2rem;
+    }
+
+    .hero-sub {
+        padding: 0; 
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero-sub h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+    .hero-btns {
+        justify-content: center;
+    }
+/* 
+    
+    .nav-logo {
+        width: 40px;
+        margin: 0.5rem 0.5rem;
+    }
+
+    .nav-links {
+        gap: 0.75rem;
+        margin: 0.5rem 0.5rem;
+    } 
+
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 0.2rem;
+    }*/
+
+    .skills-section,
+    .portfolio-section,
+    .testimonials-section,
+    .about-section {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .skills-container, 
+    .portfolio-container,
+    .testimonials-container,
+    .about-container {
+        padding: 1rem;
+    }
+
+    /* OVERRIDE FOR MOBILE: Change from flex back to grid (or keep default flex, but grid offers more control) */
+    /* Keeping grid for mobile layout simplicity for now. */
+    .portfolio-container, .skills-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    /* Adjusted grid for smaller images on mobile, still in a grid */
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    }
+
+    /* Images take full aspect ratio on smaller screens (992px and below) */
+    .portfolio-img {
+        aspect-ratio: unset;
+        object-fit: contain;
+        height: auto;
+        background-color: transparent;
+        /* Remove containment background on mobile */
+    }
+
+    .portfolio-card .gallery-grid img {
+        aspect-ratio: unset;
+        object-fit: contain;
+    }
+
+    .footer-item{
+        padding: 0;
+    }
+
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+            .portfolio-container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            }
+            .portfolio-card .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+    /* Smallest screens (mobile portrait) */
+    @media screen and (max-width: 480px) {
+        .nav-logo {
+            width: 35px;
+            /* Further reduce logo size */
+            margin: 0.25rem 0.5rem;
+            /* Further reduce vertical margin */
+        }
+        .nav-links {
+            font-size: 0.8rem;
+            padding: 0.2rem;
+            gap: 0.5rem;
+        }
+        
+        .hero-sub {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-sub h1 {
+            font-size: 2rem;
+        }
+
+        .hero-btns {
+            justify-content: center;
+        }
+
+        .hero-sub img {
+            width: 200px;
+        }
+
+        .portfolio-grid {
+            /* On tiny screens, revert to single column or small two-column */
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        }
+
+        .skills-container, .about-container, .testimonials-container {
+            grid-template-columns: 1fr;
+        }
+
+        .skills-section, .about-section, .testimonials-section {
+            padding: 1rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .c-buttons {
+            flex-direction: column;
+            gap: .5rem;
+        }
+
+        .c-paragraph {
+            padding: 0 0 !important;
+        }
+    }
+}
