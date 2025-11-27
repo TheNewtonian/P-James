@@ -26,6 +26,14 @@ p {
     font-weight: 400;
 }
 
+a {
+    text-decoration: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
 /* === NAVIGATION STYLES (ADJUSTED FOR COMPACTNESS) === */
 nav {
     display: flex;
@@ -280,8 +288,8 @@ button:hover {
 }
 
 .portfolio-img:hover {
-    transform: scale(3);
-    z-index: 100;
+    /* transform: scale(1.5);
+    z-index: 100; */
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
     object-fit: contain;
     aspect-ratio: unset; 
